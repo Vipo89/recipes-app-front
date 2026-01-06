@@ -1,0 +1,135 @@
+.loginContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: $orange-50;
+  padding: 2rem;
+}
+
+.loginForm {
+  background: white;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.8rem;
+  width: 100%;
+  max-width: 380px;
+}
+
+.signupLogo {
+  width: 200px;
+  height: auto;
+}
+
+.loginInputs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+
+  input {
+    padding: 0.9rem 1rem;
+    border-radius: 8px;
+    border: 1px solid $orange-200;
+    background: $orange-50;
+    font-size: 1rem;
+    transition: 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $orange-500;
+      background: white;
+      box-shadow: 0 0 0 3px rgba(255, 146, 43, 0.25);
+    }
+  }
+}
+
+.btnLoginUser {
+  margin-top: 0.5rem;
+  padding: 0.9rem 1rem;
+  width: 100%;
+  background: $orange-600;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+
+  &:hover {
+    background: $orange-700;
+  }
+
+  &:active {
+    background: $orange-800;
+  }
+}
+
+.btnToSignup {
+  margin-top: 1.5rem;
+  background: none;
+  border: none;
+  color: $orange-700;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+
+  &:hover {
+    color: $orange-900;
+    text-decoration: underline;
+  }
+}
+
+.errorModal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #f8d7da;
+  color: #842029;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  border: 1px solid #f5c2c7;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  text-align: center;
+  width: 80%;
+  max-width: 350px;
+
+  button {
+    margin-top: 1rem;
+    background: none;
+    border: none;
+    color: #842029;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 600px) {
+  .loginForm {
+    padding: 3rem 3rem;
+    max-width: 420px;
+  }
+
+  .signupLogo {
+    width: 230px;
+  }
+}
+
+@media (min-width: 900px) {
+  .loginForm {
+    max-width: 450px;
+    padding: 3.5rem 3rem;
+  }
+
+  .signupLogo {
+    width: 260px;
+  }
+}

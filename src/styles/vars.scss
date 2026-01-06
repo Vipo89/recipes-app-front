@@ -1,0 +1,32 @@
+
+$orange-50:   #FFF4E6;
+$orange-100:  #FFE8CC;
+$orange-200:  #FFD8A8;
+$orange-300:  #FFC078;
+$orange-400:  #FFA94D;
+$orange-500:  #FF922B; 
+$orange-600:  #FD7E14;
+$orange-700:  #F76707;
+$orange-800:  #E8590C;
+$orange-900:  #D9480F;
+
+
+$cream:       #FFF8F0;
+$warm-gray:   #6F6F6F;
+$dark-gray:   #2E2E2E;
+$soft-black:  #1A1A1A;
+
+// Estados
+$success:     #2ECC71;
+$error:       #E74C3C;
+$warning:     #F1C40F;
+
+
+$gradient-orange: linear-gradient(135deg, $orange-500, $orange-700);
+$gradient-soft:   linear-gradient(135deg, $orange-100, $orange-300);
+
+
+$text-primary:   $soft-black;
+$text-secondary: $warm-gray;
+
+$background:     $cream;
