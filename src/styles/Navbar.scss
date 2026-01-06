@@ -1,0 +1,126 @@
+@import "./vars.scss";
+
+
+.navbarContainer {
+  width: 100%;
+  background: linear-gradient(135deg, $orange-500, $orange-700);
+  padding: 1rem 1.4rem;
+max-width: 1300px;
+margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+
+.navbarSection {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+
+.navbarLeft {
+  justify-content: flex-start;
+}
+
+
+.navbarCenter {
+  justify-content: center;
+}
+
+
+.navbarRight {
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  gap: 2px;
+  max-width: 45%;
+  word-break: break-word;
+}
+
+
+.navbarLink {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.05rem;
+  letter-spacing: 0.3px;
+  transition: 0.2s ease;
+
+  &:hover {
+    color: $orange-100;
+  }
+}
+
+
+.navbarUsername {
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  letter-spacing: 0.2px;
+}
+
+
+.navbarEmail {
+  font-size: 0.82rem;
+  color: $orange-100;
+  opacity: 0.9;
+  text-decoration: none;
+  letter-spacing: 0.2px;
+}
+
+@media (min-width: 768px) {
+  .navbarContainer {
+    padding: 1.2rem 2rem;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+  }
+
+  .navbarLink {
+    font-size: 1.25rem;
+    letter-spacing: 0.4px;
+  }
+
+  .navbarUsername {
+    font-size: 1.2rem;
+    letter-spacing: 0.3px;
+  }
+
+  .navbarEmail {
+    font-size: 1rem;
+    letter-spacing: 0.3px;
+  }
+
+  .navbarRight {
+    gap: 4px;
+    max-width: 35%;
+  }
+}
+
+
+@media (min-width: 1200px) {
+  .navbarContainer {
+    padding: 1.4rem 3rem;
+  }
+
+  .navbarLink {
+    font-size: 1.35rem;
+  }
+
+  .navbarUsername {
+    font-size: 1.3rem;
+  }
+
+  .navbarEmail {
+    font-size: 1.05rem;
+  }
+}

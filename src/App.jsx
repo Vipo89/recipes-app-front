@@ -8,13 +8,12 @@ import SignupPage from "./pages/SignupPage/SignupPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 
 import PrivateRoute from "./routes/PrivateRoute";
-import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <Navbar></Navbar>
+
         <Routes>
           <Route path="/" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
