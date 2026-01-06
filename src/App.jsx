@@ -19,7 +19,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
 
           <Route
-            path="/profile"
+            path="/profile/:id"
             element={
               <PrivateRoute>
                 <ProfilePage />

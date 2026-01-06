@@ -21,21 +21,23 @@ const LoginPage = () => {
     navigate("/");
   };
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
+const handleLogin = async (e) => {
+  e.preventDefault();
 
-    try {
-      const data = await loginService(loginUser);
+  try {
+    const data = await loginService(loginUser);
 
-      localStorage.setItem("user", JSON.stringify(data.data));
-      localStorage.setItem("token", data.token);
+  
+    localStorage.setItem("user", JSON.stringify(data.data));
+    localStorage.setItem("token", data.token);
 
-      navigate("/profile");
-    } catch (error) {
-      setErrorMessage("Credenciales incorrectas.");
-      setShowError(true);
-    }
-  };
+    navigate(`/profile/${data.data._id}`);
+  } catch (error) {
+    setErrorMessage("Credenciales incorrectas.");
+    setShowError(true);
+  }
+};
+
 
   return (
     <div className="loginContainer">

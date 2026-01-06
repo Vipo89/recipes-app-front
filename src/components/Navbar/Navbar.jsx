@@ -18,8 +18,8 @@ const Navbar = () => {
           </div>
 
           <div className="navbarSection navbarRight">
-            <Link to="/profile" className="navbarUsername">{user.username}</Link>
-            <Link to="/profile" className="navbarEmail">{user.email}</Link>
+            <Link to={`/profile/${user._id}`} className="navbarUsername">{user.username}</Link>
+            <Link to={`/profile/${user._id}`} className="navbarEmail">{user.email}</Link>
           </div>
         </nav>
       ) : null}
