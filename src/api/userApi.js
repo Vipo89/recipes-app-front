@@ -5,7 +5,7 @@ export const getUserById = async (id) => {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`, 
+      Authorization: token, 
     },
   });
 

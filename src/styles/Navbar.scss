@@ -1,22 +1,21 @@
 @import "./vars.scss";
 
-
 .navbarContainer {
   width: 100%;
-  background: linear-gradient(135deg, $orange-500, $orange-700);
-  padding: 1rem 1.4rem;
-max-width: 1300px;
-margin: 0 auto;
+  background: $gradient-orange;
+  padding: 1rem 1.6rem;
+  max-width: 1300px;
+  margin: 0 auto;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  border-bottom-left-radius: 14px;
-  border-bottom-right-radius: 14px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
 
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
 }
-
 
 .navbarSection {
   flex: 1;
@@ -24,40 +23,46 @@ margin: 0 auto;
   align-items: center;
 }
 
-
 .navbarLeft {
   justify-content: flex-start;
 }
 
-
 .navbarCenter {
   justify-content: center;
 }
-
 
 .navbarRight {
   justify-content: flex-end;
   flex-direction: column;
   align-items: flex-end;
   text-align: right;
-  gap: 2px;
-  max-width: 45%;
-  word-break: break-word;
+  gap: 4px;
 }
+
 
 
 .navbarLink {
-  color: white;
+  background: $gradient-soft;
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: 2px solid $orange-300;
+
+  color: $soft-black;
   font-weight: 600;
   text-decoration: none;
-  font-size: 1.05rem;
+  font-size: 1rem;
   letter-spacing: 0.3px;
-  transition: 0.2s ease;
+
+  transition: 0.25s ease-in-out;
 
   &:hover {
-    color: $orange-100;
+    background: $gradient-orange;
+    color: white;
+    border-color: $orange-600;
+    transform: translateY(-2px);
   }
 }
+
 
 
 .navbarUsername {
@@ -68,7 +73,6 @@ margin: 0 auto;
   letter-spacing: 0.2px;
 }
 
-
 .navbarEmail {
   font-size: 0.82rem;
   color: $orange-100;
@@ -77,47 +81,67 @@ margin: 0 auto;
   letter-spacing: 0.2px;
 }
 
+
+
+.logoutButton {
+  background: linear-gradient(135deg, $error, $orange-700);
+  color: white;
+  font-weight: 600;
+
+  margin-left: 0.5rem;
+
+  border: 2px solid $error;
+  padding: 4px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+
+  transition: 0.25s ease-in-out;
+
+  &:hover {
+    background: $orange-800;
+    border-color: $orange-900;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+    background: $orange-900;
+  }
+}
+
 @media (min-width: 768px) {
   .navbarContainer {
-    padding: 1.2rem 2rem;
-    border-bottom-left-radius: 18px;
-    border-bottom-right-radius: 18px;
-    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+    padding: 1.3rem 2.2rem;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
   }
 
   .navbarLink {
-    font-size: 1.25rem;
-    letter-spacing: 0.4px;
+    font-size: 1.2rem;
   }
 
   .navbarUsername {
-    font-size: 1.2rem;
-    letter-spacing: 0.3px;
+    font-size: 1.15rem;
   }
 
   .navbarEmail {
     font-size: 1rem;
-    letter-spacing: 0.3px;
-  }
-
-  .navbarRight {
-    gap: 4px;
-    max-width: 35%;
   }
 }
 
-
 @media (min-width: 1200px) {
   .navbarContainer {
-    padding: 1.4rem 3rem;
+    padding: 1.5rem 3rem;
   }
 
   .navbarLink {
-    font-size: 1.35rem;
+    font-size: 1.3rem;
   }
 
   .navbarUsername {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
   }
 
   .navbarEmail {
