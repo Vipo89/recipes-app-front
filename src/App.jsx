@@ -8,18 +8,18 @@ import SignupPage from "./pages/SignupPage/SignupPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 
 import PrivateRoute from "./routes/PrivateRoute";
+import RecipePage from "./pages/RecipePage/RecipePage";
 
 function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-
         <Routes>
           <Route path="/" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
-
+          <Route path="/recipe/:recipeId" element={<RecipePage />} />
           <Route
-            path="/profile"
+            path="/profile/:id"
             element={
               <PrivateRoute>
                 <ProfilePage />
