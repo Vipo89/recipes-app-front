@@ -7,7 +7,6 @@ const RecipeComponent = ({ props: recipe }) => {
 const navigate = useNavigate()
 
   const recipeClicked = () => {
-    console.log(`Vamos a la receta con id: ${recipe._id}`);
     navigate(`/recipe/${recipe._id}`)
   }
   return (

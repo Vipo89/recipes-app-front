@@ -24,7 +24,6 @@ const ProfilePage = () => {
     try {
       const resUserRecipes = await getUserRecipesApi();
       setUserRecipes(resUserRecipes);
-      console.log(resUserRecipes);
     } catch (error) {
       console.log("Error al conseguir las recetas", error);
     }
@@ -43,7 +42,6 @@ const ProfilePage = () => {
 
   const acceptUserChanged = async () => {
     try {
-      console.log("Se envía a cambiar", editedUser);
 
       const updatedUser = await editUserById(id, editedUser);
 
