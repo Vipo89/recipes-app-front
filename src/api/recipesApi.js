@@ -17,18 +17,20 @@ export const getRecipeById = async (recipeId) => {
   return data.data;
 };
 
-
 export const editRecipe = async (recipeId, newRecipe) => {
   const token = localStorage.getItem("token");
 
-  const response = await fetch(`http://localhost:3000/api/recipes/edit/${recipeId}`, {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: token
-    },
-    body: JSON.stringify(newRecipe)
-  });
+  const response = await fetch(
+    `http://localhost:3000/api/recipes/edit/${recipeId}`,
+    {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+      body: JSON.stringify(newRecipe),
+    }
+  );
 
   if (!response.ok) {
     throw new Error("No se pudo editar la receta");
@@ -37,3 +39,28 @@ export const editRecipe = async (recipeId, newRecipe) => {
   const data = await response.json();
   return data.data;
 };
+
+export const userCreateRecipe = async (newRecipe) => {
+  const token = localStorage.getItem("token");
+
+  const response = await fetch(`http://localhost:3000/api/recipes/create`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: token, // <-- si tu backend usa Bearer
+    },
+    body: JSON.stringify(newRecipe),
+  });
+
+  if (!response.ok) {
+    const backendError = await response.text();
+    console.error("Backend error:", backendError);
+    throw new Error("No se pudo crear la receta");
+  }
+
+  const data = await response.json();
+  console.log(data);
+  
+  return data.data;
+};
+

@@ -9,6 +9,7 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage";
 
 import PrivateRoute from "./routes/PrivateRoute";
 import RecipePage from "./pages/RecipePage/RecipePage";
+import CreateRecipePage from "./pages/CreateRecipePage/CreateRecipePage";
 
 function App() {
   return (
@@ -23,6 +24,14 @@ function App() {
             element={
               <PrivateRoute>
                 <ProfilePage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/create"
+            element={
+              <PrivateRoute>
+                <CreateRecipePage />
               </PrivateRoute>
             }
           />

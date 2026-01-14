@@ -144,7 +144,7 @@ const ProfilePage = () => {
                 </p>
               </div>
 
-              {/* AQUÍ AÑADIMOS LA CLASE PARA EL GRID */}
+              
               <div className="profile-section recipes-grid">
                 <h3 className="recipes-section">Recetas</h3>
 
