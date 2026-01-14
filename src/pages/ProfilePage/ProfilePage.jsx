@@ -20,18 +20,19 @@ const ProfilePage = () => {
   const loggedUser = JSON.parse(localStorage.getItem("user"));
   const { id } = useParams();
 
-  const getUserRecipes = async () => {
-    try {
-      const resUserRecipes = await getUserRecipesApi();
-      setUserRecipes(resUserRecipes);
-    } catch (error) {
-      console.log("Error al conseguir las recetas", error);
-    }
-  };
+const getUserRecipes = async () => {
+  try {
+    const resUserRecipes = await getUserRecipesApi(id);
+    setUserRecipes(resUserRecipes);
+  } catch (error) {
+    console.log("Error al conseguir las recetas", error);
+  }
+};
 
-  useEffect(() => {
-    getUserRecipes();
-  }, []);
+
+useEffect(() => {
+  getUserRecipes();
+}, [id]);
 
   const editedUserHandle = (propName, propValue) => {
     setEditedUser({

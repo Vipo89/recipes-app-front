@@ -10,6 +10,7 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import PrivateRoute from "./routes/PrivateRoute";
 import RecipePage from "./pages/RecipePage/RecipePage";
 import CreateRecipePage from "./pages/CreateRecipePage/CreateRecipePage";
+import HomePage from "./pages/HomePage/HomePage";
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
           <Route path="/" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/recipe/:recipeId" element={<RecipePage />} />
+          <Route path="/home" element={<HomePage   />} />
+          
           <Route
             path="/profile/:id"
             element={
