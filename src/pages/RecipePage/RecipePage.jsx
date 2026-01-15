@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import { useNavigate, useParams } from "react-router-dom";
-import { editRecipe, getRecipeById } from "../../api/recipesApi";
+import { deleteUserRecipe, editRecipe, getRecipeById } from "../../api/recipesApi";
 import { getUserById } from "../../api/userApi";
 import NoRecipe from "../../images/NoRecipePhoto.webp";
 
@@ -79,7 +79,7 @@ const RecipePage = () => {
   const deleteRecipe = async () => {
     try {
       navigate("/home");
-      //Llamar a la peti
+      deleteUserRecipe(recipeId)
       setShowDeleteConfirm(false);
     } catch (error) {
       console.log("Error al borrar receta:", error);

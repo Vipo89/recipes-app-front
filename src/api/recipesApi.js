@@ -75,16 +75,13 @@ export const getPaginatedRecipes = async (page) => {
     }
   );
   if (!response.ok) {
-
     throw new Error("No se pudieron obtener las receta");
   }
 
   const data = await response.json();
   console.log(data);
 
-  return {recipes:data.data,
-    totalRecipes:data.totalRecipes
-  };
+  return { recipes: data.data, totalRecipes: data.totalRecipes };
 };
 
 export const searchRecipesByName = async (name, page) => {
@@ -115,13 +112,16 @@ export const searchRecipesByName = async (name, page) => {
 export const getUserRecipesApi = async (userId) => {
   const token = localStorage.getItem("token");
 
-  const response = await fetch(`http://localhost:3000/api/recipes/user/${userId}`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: token,
-    },
-  });
+  const response = await fetch(
+    `http://localhost:3000/api/recipes/user/${userId}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+    }
+  );
 
   if (!response.ok) {
     throw new Error("No se pudieron obtener las recetas");
@@ -131,4 +131,23 @@ export const getUserRecipesApi = async (userId) => {
   return data.data;
 };
 
+export const deleteUserRecipe = async (recipeId) => {
+  const token = localStorage.getItem("token");
 
+  const response = await fetch(
+    `http://localhost:3000/api/recipes/delete/${recipeId}`,
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+    }
+  );
+  if (!response.ok) {
+    throw new Error("No se pudieron obtener las recetas");
+  }
+
+  const data = await response.json();
+  return data.data;
+};
