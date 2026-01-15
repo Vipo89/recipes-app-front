@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import "../../styles/ProfilePage.scss";
 import { useParams } from "react-router-dom";
-import { editUserById, getUserById, getUserRecipesApi } from "../../api/userApi";
+import { editUserById, getUserById} from "../../api/userApi";
 import RecipeComponent from "../../components/RecipeComponent/RecipeComponent";
+import { getUserRecipesApi } from "../../api/recipesApi";
 
 const ProfilePage = () => {
   const [userInfo, setUserInfo] = useState(null);
