@@ -1,6 +1,7 @@
 import React from "react";
 import WatchIcon from "../../images/Clock-Icon.png";
 import { useNavigate } from "react-router-dom";
+import NoRecipe from "../../images/NoRecipePhoto.webp"
 
 const RecipeComponent = ({ props: recipe }) => {
 
@@ -14,7 +15,7 @@ const navigate = useNavigate()
       <div className="recipe-left">
         <img
           className="recipe-image"
-          src={recipe.image}
+          src={recipe.image ? recipe.image:NoRecipe}
           alt="Foto de la receta"
         />
       </div>

@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import "../../styles/ProfilePage.scss";
 import { useParams } from "react-router-dom";
-import { editUserById, getUserById, getUserRecipesApi } from "../../api/userApi";
+import { editUserById, getUserById} from "../../api/userApi";
 import RecipeComponent from "../../components/RecipeComponent/RecipeComponent";
+import { getUserRecipesApi } from "../../api/recipesApi";
 
 const ProfilePage = () => {
   const [userInfo, setUserInfo] = useState(null);
@@ -20,18 +21,19 @@ const ProfilePage = () => {
   const loggedUser = JSON.parse(localStorage.getItem("user"));
   const { id } = useParams();
 
-  const getUserRecipes = async () => {
-    try {
-      const resUserRecipes = await getUserRecipesApi();
-      setUserRecipes(resUserRecipes);
-    } catch (error) {
-      console.log("Error al conseguir las recetas", error);
-    }
-  };
+const getUserRecipes = async () => {
+  try {
+    const resUserRecipes = await getUserRecipesApi(id);
+    setUserRecipes(resUserRecipes);
+  } catch (error) {
+    console.log("Error al conseguir las recetas", error);
+  }
+};
 
-  useEffect(() => {
-    getUserRecipes();
-  }, []);
+
+useEffect(() => {
+  getUserRecipes();
+}, [id]);
 
   const editedUserHandle = (propName, propValue) => {
     setEditedUser({
