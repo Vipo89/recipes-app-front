@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import { useNavigate, useParams } from "react-router-dom";
-import { editRecipe, getRecipeById } from "../../api/recipesApi";
+import { deleteUserRecipe, editRecipe, getRecipeById } from "../../api/recipesApi";
 import { getUserById } from "../../api/userApi";
+import NoRecipe from "../../images/NoRecipePhoto.webp";
+
 
 const RecipePage = () => {
   const { recipeId } = useParams();
@@ -10,6 +12,8 @@ const RecipePage = () => {
   const [recipe, setRecipe] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [recipeCreator, setRecipeCreator] = useState(null);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+
   const navigate = useNavigate();
 
   const [editedRecipe, setEditedRecipe] = useState({
@@ -33,7 +37,6 @@ const RecipePage = () => {
       const updatedRecipe = await editRecipe(recipeId, editedRecipe);
       setRecipe(updatedRecipe);
       setIsEditing(false);
-      console.log("Receta actualizada:", updatedRecipe);
     } catch (error) {
       console.log("Error al editar receta:", error);
     }
@@ -59,7 +62,6 @@ const RecipePage = () => {
       getUserCreator();
     }
   }, [recipe]);
-  if (!recipe) return <p>Cargando receta...</p>;
 
   const getUserCreator = async () => {
     try {
@@ -70,23 +72,57 @@ const RecipePage = () => {
     }
   };
 
-const goToCreator = () => {
+  const goToCreator = () => {
+    navigate(`/profile/${recipeCreator._id}`);
+  };
 
-  console.log(`Voy al creador con el id ${recipeCreator._id}`);
-  
-  navigate(`/profile/${recipeCreator._id}`)
-}
+  const deleteRecipe = async () => {
+    try {
+      navigate("/home");
+      deleteUserRecipe(recipeId)
+      setShowDeleteConfirm(false);
+    } catch (error) {
+      console.log("Error al borrar receta:", error);
+    }
+  };
 
-  console.log(recipeCreator);
+  if (!recipe) return <p>Cargando receta...</p>;
 
   return (
     <>
       <Navbar />
+      {showDeleteConfirm && (
+        <div className="delete-confirm-overlay">
+          <div className="delete-confirm-box">
+            <h3>¿Seguro que quieres borrar esta receta?</h3>
+            <p>Esta acción no se puede deshacer.</p>
+
+            <div className="delete-confirm-buttons">
+              <button
+                className="cancelDeleteButton"
+                onClick={() => setShowDeleteConfirm(false)}
+              >
+                Cancelar
+              </button>
+
+              <button className="confirmDeleteButton" onClick={deleteRecipe}>
+                Sí, borrar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className="recipeMainContainer">
         <div className="recipeLeftContainer">
           <div className="recipe-image">
-            <img src={recipe.image} alt="Foto del plato" />
+            <img src={
+  recipe.image && recipe.image.startsWith("http")
+    ? recipe.image
+    : NoRecipe
+}
+ alt="Foto del plato" />
+            
           </div>
 
           <div className="recipe-ingredients-container">
@@ -107,21 +143,30 @@ const goToCreator = () => {
           <h2>{recipe.title}</h2>
 
           {loggedUser?._id === recipe.createdBy && (
-            <button
-              className="editRecipeButton"
-              onClick={() => {
-                setEditedRecipe({
-                  title: recipe.title,
-                  description: recipe.description,
-                  ingredients: recipe.ingredients,
-                  steps: recipe.steps,
-                  image: recipe.image,
-                });
-                setIsEditing(!isEditing);
-              }}
-            >
-              {isEditing ? "Cerrar edición" : "Editar receta"}
-            </button>
+            <>
+              <button
+                className="editRecipeButton"
+                onClick={() => {
+                  setEditedRecipe({
+                    title: recipe.title,
+                    description: recipe.description,
+                    ingredients: recipe.ingredients,
+                    steps: recipe.steps,
+                    image: recipe.image,
+                  });
+                  setIsEditing(!isEditing);
+                }}
+              >
+                {isEditing ? "Cerrar edición" : "Editar receta"}
+              </button>
+
+              <button
+                className="deleteRecipeButton"
+                onClick={() => setShowDeleteConfirm(true)}
+              >
+                Borrar Receta
+              </button>
+            </>
           )}
 
           {isEditing && (
@@ -170,7 +215,12 @@ const goToCreator = () => {
             </form>
           )}
 
-          <h3>Creado por:  <label className="creator-input" onClick={goToCreator}>{recipeCreator?.name} {recipeCreator?.lastName} </label></h3>
+          <h3>
+            Creado por:{" "}
+            <label className="creator-input" onClick={goToCreator}>
+              {recipeCreator?.name} {recipeCreator?.lastName}
+            </label>
+          </h3>
 
           <div className="recipe-steps">
             {recipe.steps?.map((step, idx) => (

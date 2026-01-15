@@ -1,21 +1,24 @@
 import React from "react";
 import WatchIcon from "../../images/Clock-Icon.png";
 import { useNavigate } from "react-router-dom";
-import NoRecipe from "../../images/NoRecipePhoto.webp"
+import NoRecipe from "../../images/NoRecipePhoto.webp";
 
 const RecipeComponent = ({ props: recipe }) => {
-
-const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const recipeClicked = () => {
-    navigate(`/recipe/${recipe._id}`)
-  }
+    navigate(`/recipe/${recipe._id}`);
+  };
   return (
     <div className="recipe-card" onClick={recipeClicked}>
       <div className="recipe-left">
         <img
           className="recipe-image"
-          src={recipe.image ? recipe.image:NoRecipe}
+          src={
+            recipe.image && recipe.image.startsWith("http")
+              ? recipe.image
+              : NoRecipe
+          }
           alt="Foto de la receta"
         />
       </div>
