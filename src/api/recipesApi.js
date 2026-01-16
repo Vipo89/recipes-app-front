@@ -127,6 +127,7 @@ export const getUserRecipesApi = async (userId) => {
     throw new Error("No se pudieron obtener las recetas");
   }
 
+
   const data = await response.json();
   return data.data;
 };
