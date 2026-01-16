@@ -1,0 +1,74 @@
+.contactPage-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-card {
+  background: $orange-100; 
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba($orange-700, 0.25);
+  box-shadow: 0 10px 28px rgba($soft-black, 0.12);
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  font-family: $font-primary;
+  animation: fadeIn 0.35s ease-out;
+
+  .contact-title {
+    font-family: $font-secondary;
+    font-size: 2rem;
+    color: $orange-800;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 2rem;
+
+    p {
+      background: white;
+      padding: 0.8rem 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba($soft-black, 0.1);
+      box-shadow: 0 3px 10px rgba($soft-black, 0.06);
+      font-size: 1rem;
+      color: $text-primary;
+    }
+  }
+
+  .social-info {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+
+    img {
+      width: 48px;
+      height: 48px;
+      cursor: pointer;
+      transition: transform 0.2s ease, filter 0.2s ease;
+
+      &:hover {
+        transform: scale(1.1);
+        filter: brightness(1.1);
+      }
+    }
+  }
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
