@@ -1,6 +1,13 @@
+* { box-sizing: border-box; }
 @import "./vars.scss";
 @import "./Signup.scss";
 @import "./Login.scss";
+@import "./ProfilePage.scss";
+@import "./RecipeComponent.scss";
+@import "./RecipePage.scss";
+@import "./CreateRecipePage.scss";
+@import "./HomePage.scss";
+@import "./ContactPage.scss"; 
 body{
   background-color: $cream;
 }

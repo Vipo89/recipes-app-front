@@ -1,0 +1,431 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
+
+.recipeMainContainer {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  margin-top: 1rem;
+  padding: 2.5rem 2rem;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+
+  border: 2px solid rgba($orange-500, 0.25);
+  border-radius: 20px;
+  background: $cream;
+  box-shadow: 0 10px 28px rgba($soft-black, 0.08);
+  font-family: $font-primary;
+}
+
+
+.recipeLeftContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  .recipe-image {
+    width: 100%;
+    height: 320px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba($soft-black, 0.15);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .recipe-ingredients-container {
+    background: $orange-50;
+    padding: 1.6rem;
+    border-radius: 16px;
+    border: 1px solid rgba($orange-500, 0.15);
+    box-shadow: 0 6px 18px rgba($soft-black, 0.08);
+
+    h3 {
+      margin-bottom: 1rem;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: $orange-600;
+      text-align: center;
+      font-family: $font-secondary;
+    }
+
+    .recipe-ingredients {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+
+      p {
+        font-size: 1.05rem;
+        color: $text-primary;
+        padding: 0.6rem 0.8rem;
+        background: white;
+        border-radius: 10px;
+        border: 1px solid rgba($soft-black, 0.06);
+        box-shadow: 0 2px 6px rgba($soft-black, 0.05);
+      }
+    }
+  }
+
+  .recipe-servings-container {
+    background: $orange-50;
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    width: fit-content;
+    margin: 0 auto;
+
+    border: 1px solid rgba($orange-500, 0.25);
+    box-shadow: 0 3px 10px rgba($soft-black, 0.06);
+
+    .single-recipe-servings {
+      font-size: 1rem;
+      font-weight: 600;
+      color: $orange-600;
+      letter-spacing: 0.3px;
+    }
+  }
+}
+
+
+.recipeRightContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  text-align: center;
+
+  h2 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: $orange-700;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 6px rgba($orange-500, 0.25);
+    font-family: $font-secondary;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: $text-primary;
+  }
+
+  .recipe-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+
+    div {
+      background: $orange-50;
+      padding: 1.4rem;
+      border-radius: 16px;
+      border: 1px solid rgba($orange-500, 0.15);
+      box-shadow: 0 6px 18px rgba($soft-black, 0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 24px rgba($soft-black, 0.12);
+      }
+
+      h3 {
+        margin: 0;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: $text-primary;
+        line-height: 1.5;
+      }
+    }
+  }
+}
+
+
+.editRecipeButton {
+  background: $gradient-orange;
+  color: white;
+  padding: 0.8rem 1.6rem;
+  border-radius: 14px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  margin: 1rem auto;
+  display: block;
+  transition: 0.25s ease;
+  font-size: 1rem;
+  letter-spacing: 0.4px;
+  box-shadow: 0 6px 16px rgba($orange-700, 0.25);
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba($orange-700, 0.35);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba($orange-700, 0.2);
+  }
+}
+
+
+.editRecipeForm {
+  margin-top: 1.5rem;
+  padding: 2rem;
+  background: $orange-50;
+  border-radius: 20px;
+  border: 1px solid rgba($orange-500, 0.2);
+  box-shadow: 0 10px 28px rgba($soft-black, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+
+  label {
+    font-weight: 700;
+    color: $orange-700;
+    font-size: 1.1rem;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba($soft-black, 0.15);
+    background: white;
+    font-size: 1rem;
+    color: $text-primary;
+    resize: vertical;
+    transition: 0.25s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $orange-600;
+      box-shadow: 0 0 0 3px rgba($orange-500, 0.25);
+    }
+  }
+
+  textarea {
+    min-height: 120px;
+  }
+}
+
+
+.saveRecipeButton {
+  background: $gradient-orange;
+  color: white;
+  padding: 0.9rem 1.6rem;
+  border-radius: 14px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: 0.25s ease;
+  font-size: 1rem;
+  letter-spacing: 0.4px;
+  align-self: flex-start;
+  box-shadow: 0 6px 16px rgba($orange-700, 0.25);
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba($orange-700, 0.35);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba($orange-700, 0.2);
+  }
+}
+
+
+@media (min-width: 1024px) {
+  .recipeMainContainer {
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+  }
+
+  .recipeRightContainer h2 {
+    font-size: 2.8rem;
+  }
+}
+
+
+.creator-input {
+  cursor: pointer;
+  font-family: $font-primary;
+  font-weight: 600;
+  color: $orange-700;
+  padding: 0.35rem 0.75rem;
+  border-radius: 10px;
+  background: rgba($orange-100, 0.4);
+  transition: all 0.25s ease;
+  display: inline-block;
+  box-shadow: 0 2px 6px rgba($orange-700, 0.12);
+
+  &:hover {
+    background: $gradient-soft;
+    color: $soft-black;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba($orange-700, 0.18);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba($orange-700, 0.15);
+  }
+}
+
+/* ------------------------------ */
+/*   BOTÓN BORRAR RECETA          */
+/* ------------------------------ */
+
+.deleteRecipeButton {
+  background: $error;
+  color: white;
+  padding: 0.8rem 1.6rem;
+  border-radius: 14px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  margin: 0.5rem auto 1rem auto;
+  display: block;
+  transition: 0.25s ease;
+  font-size: 1rem;
+  letter-spacing: 0.4px;
+  box-shadow: 0 6px 16px rgba($error, 0.25);
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba($error, 0.35);
+    background: darken($error, 5%);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba($error, 0.2);
+  }
+}
+
+/* ------------------------------ */
+/*   MODAL DE CONFIRMACIÓN        */
+/* ------------------------------ */
+
+.delete-confirm-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba($soft-black, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+
+  animation: fadeIn 0.25s ease-out;
+}
+
+.delete-confirm-box {
+  background: $orange-50;
+  padding: 2rem;
+  border-radius: 20px;
+  border: 1px solid rgba($orange-500, 0.25);
+  box-shadow: 0 10px 28px rgba($soft-black, 0.15);
+  text-align: center;
+  max-width: 360px;
+  width: 90%;
+
+  animation: scaleIn 0.25s ease-out;
+
+  h3 {
+    font-family: $font-secondary;
+    font-size: 1.5rem;
+    color: $orange-700;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+    color: $text-secondary;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.delete-confirm-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* ------------------------------ */
+/*   BOTÓN CANCELAR               */
+/* ------------------------------ */
+
+.cancelDeleteButton {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  background: white;
+  border: 1px solid rgba($orange-500, 0.3);
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  color: $text-primary;
+  transition: 0.25s ease;
+
+  &:hover {
+    background: $orange-100;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.confirmDeleteButton {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  background: $error;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: 0.25s ease;
+
+  &:hover {
+    background: darken($error, 5%);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

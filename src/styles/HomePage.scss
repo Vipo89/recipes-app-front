@@ -1,0 +1,101 @@
+.homePage-Container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+
+  background: $orange-50;
+  border-radius: 20px;
+  border: 1px solid rgba($orange-500, 0.25);
+  box-shadow: 0 10px 28px rgba($soft-black, 0.08);
+
+  font-family: $font-primary;
+  color: $text-primary;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+
+.recipe-main {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: $text-primary; 
+  font-family: $font-secondary;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+
+.search-input {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  border-radius: 12px;
+  border: 1px solid $orange-100;
+  background: $cream;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  outline: none;
+  color: $text-primary;
+  font-family: $font-primary;
+
+  &::placeholder {
+    color: $text-secondary;
+  }
+
+  &:focus {
+    border-color: $orange-400;
+    background: white;
+    box-shadow: 0 0 0 3px rgba($orange-300, 0.4);
+  }
+}
+
+.no-recipes {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  color: $text-secondary;
+  font-weight: 500;
+  font-family: $font-primary;
+}
+
+.pagination-simple {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 2rem;
+}
+
+.pagination-simple button {
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  border: 1px solid $orange-200;
+  background: white;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  font-family: $font-primary;
+  color: $text-primary;
+
+  &:hover {
+    background: $orange-50;
+    border-color: $orange-400;
+  }
+
+  &:active {
+    background: $orange-100;
+  }
+}
+
+.page-number {
+  font-size: 1rem;
+  font-weight: 600;
+  color: $text-primary;
+  font-family: $font-primary;
+}
+
+.back-pag,
+.front-page {
+  color: $text-primary;
+}

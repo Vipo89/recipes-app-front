@@ -8,22 +8,36 @@ import SignupPage from "./pages/SignupPage/SignupPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 
 import PrivateRoute from "./routes/PrivateRoute";
-import Navbar from "./components/Navbar/Navbar";
+import RecipePage from "./pages/RecipePage/RecipePage";
+import CreateRecipePage from "./pages/CreateRecipePage/CreateRecipePage";
+import HomePage from "./pages/HomePage/HomePage";
+import ContactPage from "./pages/ContactPage/ContactPage";
 
 function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <Navbar></Navbar>
         <Routes>
           <Route path="/" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
-
+          <Route path="/recipe/:recipeId" element={<RecipePage />} />
+          <Route path="/home" element={<HomePage   />} />
+          <Route path="/contact" element={<ContactPage   />} />
+          
+          
           <Route
-            path="/profile"
+            path="/profile/:id"
             element={
               <PrivateRoute>
                 <ProfilePage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/create"
+            element={
+              <PrivateRoute>
+                <CreateRecipePage />
               </PrivateRoute>
             }
           />
