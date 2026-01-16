@@ -28,6 +28,11 @@ const Navbar = () => {
               Crear receta
             </Link>
           </div>
+          <div className="navbarSection navbarCenter">
+            <Link to = "/contact" className="navbarLink">
+            Contact
+            </Link>
+          </div>
 
           <div className="navbarSection navbarRight">
             <Link to={`/profile/${user._id}`} className="navbarUsername">

@@ -11,6 +11,7 @@ import PrivateRoute from "./routes/PrivateRoute";
 import RecipePage from "./pages/RecipePage/RecipePage";
 import CreateRecipePage from "./pages/CreateRecipePage/CreateRecipePage";
 import HomePage from "./pages/HomePage/HomePage";
+import ContactPage from "./pages/ContactPage/ContactPage";
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/recipe/:recipeId" element={<RecipePage />} />
           <Route path="/home" element={<HomePage   />} />
+          <Route path="/contact" element={<ContactPage   />} />
+          
           
           <Route
             path="/profile/:id"
