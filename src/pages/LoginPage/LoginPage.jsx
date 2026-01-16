@@ -52,6 +52,8 @@ const handleLogin = async (e) => {
 
       <div className="loginForm">
         <img src={CookingLogo} alt="Logo" className="signupLogo" />
+        <h1 className="page-name">FuegoLento</h1>
+
 
         <form className="loginInputs" onSubmit={handleLogin}>
           <input
