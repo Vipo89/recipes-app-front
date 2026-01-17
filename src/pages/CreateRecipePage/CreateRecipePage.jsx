@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import { userCreateRecipe } from "../../api/recipesApi";
+import { useNavigate } from "react-router-dom";
 
 const CreateRecipePage = () => {
   const [newRecipe, setNewRecipe] = useState({
@@ -12,6 +13,8 @@ const CreateRecipePage = () => {
     ingredients: [""],
     steps: [""],
   });
+
+  const navigate = useNavigate()
 
   const newRecipeHandler = (propName, propValue) => {
     setNewRecipe({ ...newRecipe, [propName]: propValue });
@@ -27,12 +30,12 @@ const CreateRecipePage = () => {
     newRecipeHandler("ingredients", updated);
   };
 
-  const removeIngredient = (index) => {
-    newRecipeHandler(
-      "ingredients",
-      newRecipe.ingredients.filter((_, i) => i !== index)
-    );
-  };
+const removeIngredient = (index) => {
+  const updatedIngredients = [...newRecipe.ingredients];
+  updatedIngredients.splice(index, 1);
+  newRecipeHandler("ingredients", updatedIngredients);
+};
+
 
   const addStep = () => {
     newRecipeHandler("steps", [...newRecipe.steps, ""]);
@@ -44,12 +47,12 @@ const CreateRecipePage = () => {
     newRecipeHandler("steps", updated);
   };
 
-  const removeStep = (index) => {
-    newRecipeHandler(
-      "steps",
-      newRecipe.steps.filter((_, i) => i !== index)
-    );
-  };
+const removeStep = (index) => {
+  const updatedSteps = [...newRecipe.steps];
+  updatedSteps.splice(index, 1);
+  newRecipeHandler("steps", updatedSteps);
+};
+
 
   const sendNewRecipe = (e) => {
     e.preventDefault();
@@ -57,7 +60,7 @@ const CreateRecipePage = () => {
     if (!res === "Sucess") {
         console.log("No, algo ha fallado");
     }
-    else console.log("Mu bien niño");
+    else navigate("/home")
   };
 
   return (
@@ -65,12 +68,12 @@ const CreateRecipePage = () => {
       <Navbar />
 
       <div className="create-recipe-main-container">
-        <h2 className="create-recipe-title">Create new recipe</h2>
+        <h2 className="create-recipe-title">Crea una nueva receta</h2>
 
         <form className="create-recipe-form" onSubmit={sendNewRecipe}>
 
           <label className="create-recipe-label">
-            Title
+            Título
             <input
               className="create-recipe-input"
               type="text"
@@ -81,7 +84,7 @@ const CreateRecipePage = () => {
           </label>
 
           <label className="create-recipe-label">
-            Description
+            Descripción
             <input
               className="create-recipe-input"
               type="text"
@@ -103,7 +106,7 @@ const CreateRecipePage = () => {
           </label>
 
           <label className="create-recipe-label">
-            Cooking Time (minutes)
+            Tiempo de elaboración (minutos)
             <input
               className="create-recipe-input"
               type="number"
@@ -114,7 +117,7 @@ const CreateRecipePage = () => {
           </label>
 
           <label className="create-recipe-label">
-            Servings
+            Raciones
             <input
               className="create-recipe-input"
               type="number"
@@ -125,7 +128,7 @@ const CreateRecipePage = () => {
           </label>
 
           <div className="create-recipe-section">
-            <h3 className="create-recipe-subtitle">Ingredients</h3>
+            <h3 className="create-recipe-subtitle">Ingredientes</h3>
 
             {newRecipe.ingredients.map((ingredient, index) => (
               <div className="create-recipe-dynamic-row" key={index}>
@@ -143,7 +146,7 @@ const CreateRecipePage = () => {
                     type="button"
                     onClick={() => removeIngredient(index)}
                   >
-                    Remove
+                    Quitar
                   </button>
                 )}
               </div>
@@ -154,12 +157,12 @@ const CreateRecipePage = () => {
               type="button"
               onClick={addIngredient}
             >
-              Add ingredient
+              Añadir ingrediente
             </button>
           </div>
 
           <div className="create-recipe-section">
-            <h3 className="create-recipe-subtitle">Steps</h3>
+            <h3 className="create-recipe-subtitle">Pasos</h3>
 
             {newRecipe.steps.map((step, index) => (
               <div className="create-recipe-dynamic-row" key={index}>
@@ -177,7 +180,7 @@ const CreateRecipePage = () => {
                     type="button"
                     onClick={() => removeStep(index)}
                   >
-                    Remove
+                    Quitar
                   </button>
                 )}
               </div>
@@ -188,12 +191,12 @@ const CreateRecipePage = () => {
               type="button"
               onClick={addStep}
             >
-              Add step
+              Añadir paso
             </button>
           </div>
 
           <button className="create-recipe-submit-button" type="submit">
-            Create Recipe
+            Crear receta
           </button>
 
         </form>

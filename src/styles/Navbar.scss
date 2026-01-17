@@ -1,150 +1,147 @@
 @import "./vars.scss";
 
 .navbarContainer {
-  width: 100%;
-  background: $gradient-orange;
-  padding: 1rem 1.6rem;
-  max-width: 1300px;
-  margin: 0 auto;
+  width: 70%;             
+  margin: 0 auto;          
+  height: 95px;
+  background: $orange-50;
+  border-bottom: 1px solid rgba($orange-700, 0.25);
+  box-shadow: 0 6px 20px rgba($soft-black, 0.08);
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  border-bottom-left-radius: 16px;
-  border-bottom-right-radius: 16px;
+  padding: 0 3rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  font-family: $font-primary;
+
+  border-radius: 16px; 
 }
+
 
 .navbarSection {
-  flex: 1;
   display: flex;
   align-items: center;
+  // gap: 2rem;
 }
-
-.navbarLeft {
-  justify-content: flex-start;
-}
-
-.navbarCenter {
-  justify-content: center;
-}
-
-.navbarRight {
-  justify-content: flex-end;
-  flex-direction: column;
-  align-items: flex-end;
-  text-align: right;
-  gap: 4px;
-}
-
 
 
 .navbarLink {
-  background: $gradient-soft;
-  padding: 8px 16px;
-  border-radius: 10px;
-  border: 2px solid $orange-300;
-
-  color: $soft-black;
-  font-weight: 600;
+  font-size: 1.25rem;
+  color: $orange-900;
   text-decoration: none;
-  font-size: 1rem;
-  letter-spacing: 0.3px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 
-  transition: 0.25s ease-in-out;
+  transition: color 0.2s ease, transform 0.2s ease;
 
   &:hover {
-    background: $gradient-orange;
-    color: white;
-    border-color: $orange-600;
-    transform: translateY(-2px);
+    color: $orange-600;
+    transform: translateY(-3px);
   }
 }
-
 
 
 .navbarUsername {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  color: white;
+  color: $soft-black;
   text-decoration: none;
-  letter-spacing: 0.2px;
+
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $orange-700;
+  }
 }
 
 .navbarEmail {
-  font-size: 0.82rem;
-  color: $orange-100;
-  opacity: 0.9;
+  font-size: 0.95rem;
+  color: $warm-gray;
   text-decoration: none;
-  letter-spacing: 0.2px;
-}
 
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $orange-600;
+  }
+}
 
 
 .logoutButton {
-  background: linear-gradient(135deg, $error, $orange-700);
+  background: $gradient-orange;
+  border: none;
+  padding: 0.7rem 1.6rem;
+  border-radius: 12px;
+
   color: white;
-  font-weight: 600;
-
-  margin-left: 0.5rem;
-
-  border: 2px solid $error;
-  padding: 4px 12px;
-  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
   cursor: pointer;
-  font-size: 1.2rem;
 
-  transition: 0.25s ease-in-out;
+  transition: transform 0.2s ease, box-shadow 0.25s ease;
 
   &:hover {
-    background: $orange-800;
-    border-color: $orange-900;
-    transform: translateY(-2px);
-  }
-
-  &:active {
-    transform: translateY(0);
-    background: $orange-900;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba($orange-700, 0.35);
   }
 }
 
-@media (min-width: 768px) {
+.navbarRight {
+  display: flex;
+  flex-direction: column;  
+  align-items: flex-start;     
+}
+
+
+@media (max-width: 1200px) {
   .navbarContainer {
-    padding: 1.3rem 2.2rem;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
+    width: 85%; 
+  }
+}
+
+@media (max-width: 900px) {
+  .navbarContainer {
+    width: 95%;
+    padding: 0 1.5rem;
+    height: 85px;
+  }
+
+  .navbarSection {
+    gap: 0.5rem;
   }
 
   .navbarLink {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
+}
 
-  .navbarUsername {
-    font-size: 1.15rem;
-  }
-
+@media (max-width: 650px) {
   .navbarEmail {
+    display: none;
+  }
+
+  .navbarContainer {
+    height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbarCenter {
+    display: none;
+  }
+
+  .navbarLink {
     font-size: 1rem;
   }
-}
 
-@media (min-width: 1200px) {
   .navbarContainer {
-    padding: 1.5rem 3rem;
-  }
-
-  .navbarLink {
-    font-size: 1.3rem;
-  }
-
-  .navbarUsername {
-    font-size: 1.25rem;
-  }
-
-  .navbarEmail {
-    font-size: 1.05rem;
+    width: 100%; 
+    border-radius: 0; 
   }
 }
+

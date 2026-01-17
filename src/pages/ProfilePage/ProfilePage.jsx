@@ -23,7 +23,7 @@ const ProfilePage = () => {
 
 const getUserRecipes = async () => {
   try {
-    const resUserRecipes = await getUserRecipesApi(id);
+    const resUserRecipes = await getUserRecipesApi(id);  
     setUserRecipes(resUserRecipes);
   } catch (error) {
     console.log("Error al conseguir las recetas", error);
