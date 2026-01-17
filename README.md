@@ -1,11 +1,11 @@
-# 🍽️ Recipe App – Frontend
+#  Recipe App – Frontend
 
 Frontend for a recipe application developed with **React**, responsible for handling the entire user interface to create, edit, view, and manage recipes.  
 It includes user authentication, user profiles, responsive design, and a visual system based on a **custom design system**.
 
 ---
 
-## 🚀 Technologies Used
+##  Technologies Used
 
 - React + Vite
 - React Router
@@ -16,7 +16,7 @@ It includes user authentication, user profiles, responsive design, and a visual 
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```bash
 src/
@@ -46,7 +46,7 @@ src/
 
 ---
 
-## 🔐 Authentication
+##  Authentication
 
 The frontend handles authentication using **JWT**, storing the token in `localStorage` and sending it with every request to the backend using the following header:
 
@@ -56,7 +56,7 @@ Authorization: token
 
 ---
 
-## 🧭 Main Routes
+##  Main Routes
 
 - `/` – Home  
 - `/login` – Login  
@@ -67,7 +67,7 @@ Authorization: token
 
 ---
 
-## 📦 Available Scripts
+##  Available Scripts
 
 ### Install dependencies
 ```bash
@@ -87,7 +87,7 @@ npm run build
 
 ---
 
-## 🔗 Backend Connection
+##  Backend Connection
 
 The frontend consumes a **REST API** available at:
 
@@ -99,7 +99,7 @@ API calls are centralized in the `api/` folder.
 
 ---
 
-## 🧪 State Management and Logic
+##  State Management and Logic
 
 - `useState` for forms and local state  
 - `useEffect` for API calls  
@@ -108,19 +108,46 @@ API calls are centralized in the `api/` folder.
 
 ---
 
-## 🖼️ Main Components
+##  Main Routes
 
-- **Navbar** – Main navigation and profile access  
-- **RecipeComponent** – Recipe card  
-- **RecipeForm** – Recipe creation and editing  
-- **ProfilePage** – User profile with user recipes  
+### Frontend UI Routes
+- `/` – Home  
+- `/login` – Login  
+- `/register` – Register  
+- `/profile/:id` – User profile  
+- `/recipe/:id` – Recipe details  
+- `/create` – Create recipe  
+- `/edit/:id` – Edit recipe  
+- `/search` – Search results  
 
 ---
 
-## 📸 Images ### Home Page ![Home Page](./src/projectImg/HomePagePhoto.png)
-### Recipe Page ![Recipe Details](./src/projectImg/RecipePagePhoto.png)
-### Create Recipe Form ![Create Recipe Form](./src/projectImg/CreateRecipePagePhoto.png)
+### API Routes Used by the Frontend
 
-## 📄 License
+#### Auth
+- `POST /api/auth/signup` – Register user  
+- `POST /api/auth/login` – Login user  
+
+#### Recipes
+- `GET /api/recipes/:id` – Get recipe by ID  
+- `PATCH /api/recipes/edit/:id` – Edit recipe  
+- `POST /api/recipes/create` – Create recipe  
+- `DELETE /api/recipes/delete/:id` – Delete recipe  
+- `GET /api/recipes/paginated?page=x` – Paginated recipes  
+- `GET /api/recipes/search?name=x&page=y` – Search recipes  
+- `GET /api/recipes/user/:id` – Recipes by user  
+
+#### Users
+- `GET /api/users/:id` – Get user  
+- `PATCH /api/users/edit/:id` – Edit user  
+  
+
+---
+
+##  Images ### Home Page ![Home Page](./src/projectImg/HomePagePhoto.png)
+ ### Recipe Details ![Recipe Details](./src/projectImg/RecipePagePhoto.png) 
+ ### Create Recipe Form ![Create Recipe Form](./src/projectImg/CreateRecipePagePhoto.png)
+
+##  License
 
 Personal project developed by **Víctor Jesús Parras Rumbado**.
