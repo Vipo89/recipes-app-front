@@ -144,7 +144,8 @@ API calls are centralized in the `api/` folder.
 
 ---
 
-##  Images ### Home Page ![Home Page](./src/projectImg/HomePagePhoto.png)
+##  Images
+ ### Home Page ![Home Page](./src/projectImg/HomePagePhoto.png)
  ### Recipe Details ![Recipe Details](./src/projectImg/RecipePagePhoto.png) 
  ### Create Recipe Form ![Create Recipe Form](./src/projectImg/CreateRecipePagePhoto.png)
 
