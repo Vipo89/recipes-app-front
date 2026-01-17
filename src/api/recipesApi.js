@@ -57,7 +57,6 @@ export const userCreateRecipe = async (newRecipe) => {
   }
 
   const data = await response.json();
-  console.log(data);
 
   return data.data;
 };
@@ -79,7 +78,6 @@ export const getPaginatedRecipes = async (page) => {
   }
 
   const data = await response.json();
-  console.log(data);
 
   return { recipes: data.data, totalRecipes: data.totalRecipes };
 };
@@ -129,6 +127,7 @@ export const getUserRecipesApi = async (userId) => {
 
 
   const data = await response.json();
+  
   return data.data;
 };
 

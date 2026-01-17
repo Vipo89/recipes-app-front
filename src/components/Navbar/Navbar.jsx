@@ -30,7 +30,7 @@ const Navbar = () => {
           </div>
           <div className="navbarSection navbarCenter">
             <Link to = "/contact" className="navbarLink">
-            Contact
+            Contacto
             </Link>
           </div>
 
@@ -43,7 +43,7 @@ const Navbar = () => {
             </Link>
           </div>
           <button className="logoutButton" onClick={logout}>
-            Logout
+            Cerrar sesión
           </button>
         </nav>
       ) : null}
